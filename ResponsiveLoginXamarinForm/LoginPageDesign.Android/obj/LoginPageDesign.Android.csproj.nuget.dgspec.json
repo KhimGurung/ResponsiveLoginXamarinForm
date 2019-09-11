@@ -1,0 +1,156 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\XamarinFormProjects\\LoginPageDesign\\LoginPageDesign\\LoginPageDesign.Android\\LoginPageDesign.Android.csproj": {}
+  },
+  "projects": {
+    "D:\\XamarinFormProjects\\LoginPageDesign\\LoginPageDesign\\LoginPageDesign.Android\\LoginPageDesign.Android.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\XamarinFormProjects\\LoginPageDesign\\LoginPageDesign\\LoginPageDesign.Android\\LoginPageDesign.Android.csproj",
+        "projectName": "LoginPageDesign.Android",
+        "projectPath": "D:\\XamarinFormProjects\\LoginPageDesign\\LoginPageDesign\\LoginPageDesign.Android\\LoginPageDesign.Android.csproj",
+        "packagesPath": "C:\\Users\\KHIM\\.nuget\\packages\\",
+        "outputPath": "D:\\XamarinFormProjects\\LoginPageDesign\\LoginPageDesign\\LoginPageDesign.Android\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\KHIM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "monoandroid90"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "monoandroid90": {
+            "projectReferences": {
+              "D:\\XamarinFormProjects\\LoginPageDesign\\LoginPageDesign\\LoginPageDesign\\LoginPageDesign.csproj": {
+                "projectPath": "D:\\XamarinFormProjects\\LoginPageDesign\\LoginPageDesign\\LoginPageDesign\\LoginPageDesign.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "monoandroid90": {
+          "dependencies": {
+            "Xamarin.Android.Support.Core.Utils": {
+              "target": "Package",
+              "version": "[28.0.0.1, )"
+            },
+            "Xamarin.Android.Support.CustomTabs": {
+              "target": "Package",
+              "version": "[28.0.0.1, )"
+            },
+            "Xamarin.Android.Support.Design": {
+              "target": "Package",
+              "version": "[28.0.0.1, )"
+            },
+            "Xamarin.Android.Support.v4": {
+              "target": "Package",
+              "version": "[28.0.0.1, )"
+            },
+            "Xamarin.Android.Support.v7.AppCompat": {
+              "target": "Package",
+              "version": "[28.0.0.1, )"
+            },
+            "Xamarin.Android.Support.v7.CardView": {
+              "target": "Package",
+              "version": "[28.0.0.1, )"
+            },
+            "Xamarin.Android.Support.v7.MediaRouter": {
+              "target": "Package",
+              "version": "[28.0.0.1, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[4.1.0.555618, )"
+            }
+          }
+        }
+      }
+    },
+    "D:\\XamarinFormProjects\\LoginPageDesign\\LoginPageDesign\\LoginPageDesign\\LoginPageDesign.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\XamarinFormProjects\\LoginPageDesign\\LoginPageDesign\\LoginPageDesign\\LoginPageDesign.csproj",
+        "projectName": "LoginPageDesign",
+        "projectPath": "D:\\XamarinFormProjects\\LoginPageDesign\\LoginPageDesign\\LoginPageDesign\\LoginPageDesign.csproj",
+        "packagesPath": "C:\\Users\\KHIM\\.nuget\\packages\\",
+        "outputPath": "D:\\XamarinFormProjects\\LoginPageDesign\\LoginPageDesign\\LoginPageDesign\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\KHIM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "LeoJHarris.XForms.Plugin.EnhancedEntry": {
+              "target": "Package",
+              "version": "[1.0.6, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "SkiaSharp.Views.Forms": {
+              "target": "Package",
+              "version": "[1.68.0, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[4.1.0.555618, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

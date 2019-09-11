@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Page:BaseOrientationPage xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                          xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+                          xmlns:enhancedEntry="clr-namespace:LeoJHarris.FormsPlugin.Abstractions;assembly=LeoJHarris.FormsPlugin.Abstractions"
+                          xmlns:Page="clr-namespace:ResponsiveRegistrationForm"
+                          mc:Ignorable="d"
+                          x:Class="LoginPageDesign.MainPage">
+    <AbsoluteLayout BackgroundColor="#ffffff">
+        <skia:SKCanvasView PaintSurface="SKCanvasView_PaintSurface"
+                           AbsoluteLayout.LayoutFlags="All"
+                           AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+        <FlexLayout x:Name="PageLayout" 
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <StackLayout x:Name="CompanyInfo" 
+                         FlexLayout.Basis="50%"
+                         VerticalOptions="FillAndExpand">
+
+            </StackLayout>
+            <StackLayout x:Name="LoginForm" 
+                         FlexLayout.Basis="50%"
+                         VerticalOptions="FillAndExpand">
+                <Frame x:Name="LoginFormFrame" 
+                       VerticalOptions="CenterAndExpand"
+                       HasShadow="False"
+                       CornerRadius="20">
+                    <StackLayout>
+                        <Label x:Name="FormTitle" 
+                               Text="Login as admin user"
+                               FontAttributes="Bold"
+                               TextColor="#1c1c1c"
+                               FontSize="30" />
+                        <enhancedEntry:EnhancedEntry x:Name="Username" 
+                                                     Placeholder="Username or email"
+                                                     CornerRadius="25"
+                                                     BorderColor="#dadada"
+                                                     BorderWidth="2"
+                                                     Margin="0,35,0,0"
+                                                     LeftIcon="user"/>
+                        <enhancedEntry:EnhancedEntry x:Name="Password" 
+                                                     Placeholder="Password"
+                                                     CornerRadius="25"
+                                                     BorderColor="#dadada"
+                                                     IsPassword="True"
+                                                     BorderWidth="2"
+                                                     Margin="0,30,0,0"
+                                                     LeftIcon="lock"/>
+                        <Label Text="Forget the password"
+                               TextColor="#acacac"
+                               FontSize="15"/>
+                        <Grid x:Name="LoginButton" 
+                              Margin="0,30,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Frame Padding="0"
+                                   HasShadow="False"
+                                   CornerRadius="25"
+                                   IsClippedToBounds="True"
+                                   Grid.Row="0">
+                                <skia:SKCanvasView VerticalOptions="FillAndExpand"
+                                                   HorizontalOptions="FillAndExpand"
+                                                   PaintSurface="SKCanvasView_PaintSurface_1"/>
+                            </Frame>
+                            <Button Text="Login"
+                                    TextColor="#ffffff"
+                                    BackgroundColor="Transparent"
+                                    CornerRadius="25"
+                                    Grid.Row="0"/>
+                        </Grid>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Don't have account yet?"
+                                          TextColor="#acacac"
+                                          FontSize="15" />
+                                    <Span Text=" Sign in" 
+                                          TextColor="#511694"
+                                          FontSize="15"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </FlexLayout>
+    </AbsoluteLayout>
+
+</Page:BaseOrientationPage>
