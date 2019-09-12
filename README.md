@@ -196,8 +196,11 @@ public class BaseOrientationPage : ContentPage
 ```
 
 # Used Plugins
-Markup: * SkiaSharp (used to get gradiant, dotted circles and curves)
-        * LeoJHarris.XForms.Plugins.EnhancedEntry (For advanced entry control)
+
+* SkiaSharp (used to get gradiant, dotted circles and curves)
+* LeoJHarris.XForms.Plugins.EnhancedEntry (For advanced entry control)
+
+# Output screenshot of both mobile and tablet in android device
 <table>
   <tr>
     <td>Mobile Portrait View</td>
