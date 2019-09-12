@@ -30,15 +30,15 @@ namespace LoginPageDesign
 
         private void SKCanvasView_PaintSurface(object sender, SKPaintSurfaceEventArgs args)
         {
-            
-            if(deviceOrientation == OrientationValue.Landscape)
-                LandScapeView(args);
+
+            if (Device.Idiom == TargetIdiom.Tablet)
+                TabletView(args, deviceOrientation);
             else
-                PortraitView(args);
+                MobileView(args, deviceOrientation);
 
         }
 
-        private void LandScapeView(SKPaintSurfaceEventArgs args)
+        private void PaintLandScapeBackground(SKPaintSurfaceEventArgs args)
         {
             SKImageInfo info = args.Info;
             SKSurface surface = args.Surface;
@@ -76,36 +76,9 @@ namespace LoginPageDesign
                     canvas.DrawPath(path, paint);
                 }
             }
-
-            PageLayout.Direction = FlexDirection.Row;
-            
-            if (Device.Idiom == TargetIdiom.Tablet)
-            {
-                LoginFormFrame.HasShadow = false;
-                LoginFormFrame.Margin = new Thickness(60, 0);
-                LoginFormFrame.Padding = new Thickness(0);
-
-                FlexLayout.SetBasis(CompanyInfo, new FlexBasis(0.55f, true));
-                FlexLayout.SetBasis(LoginForm, new FlexBasis(0.45f, true));
-            }
-            else
-            {
-                FormTitle.FontSize = 25;
-
-                Username.Margin = new Thickness(0, 15, 0, 0);
-                Password.Margin = new Thickness(0, 15, 0, 0);
-                LoginButton.Margin = new Thickness(0, 15, 0, 0);
-
-                LoginFormFrame.HasShadow = true;
-                LoginFormFrame.Margin = new Thickness(0,30,70,30);
-                LoginFormFrame.Padding = new Thickness(20);
-
-                FlexLayout.SetBasis(CompanyInfo, new FlexBasis(0.35f, true));
-                FlexLayout.SetBasis(LoginForm, new FlexBasis(0.65f, true));
-            }
         }
 
-        private void PortraitView(SKPaintSurfaceEventArgs args)
+        private void PaintPortraitBackground(SKPaintSurfaceEventArgs args)
         {
             SKImageInfo info = args.Info;
             SKSurface surface = args.Surface;
@@ -115,14 +88,14 @@ namespace LoginPageDesign
             using (SKPath path = new SKPath())
             {
                 path.MoveTo(0, 0);
-                path.LineTo(0, info.Height * 0.57f);
+                path.LineTo(0, info.Height * 0.37f);
 
-                path.CubicTo(info.Width * 0.14f, info.Height * 0.54f,
-                             info.Width * 0.24f, info.Height * 0.46f,
-                             info.Width * 0.45f, info.Height * 0.46f);
-                path.CubicTo(info.Width * 0.68f, info.Height * 0.46f,
-                             info.Width * 0.83f, info.Height * 0.57f,
-                             info.Width, info.Height * 0.6f);
+                path.CubicTo(info.Width * 0.14f, info.Height * 0.34f,
+                             info.Width * 0.24f, info.Height * 0.26f,
+                             info.Width * 0.45f, info.Height * 0.26f);
+                path.CubicTo(info.Width * 0.68f, info.Height * 0.26f,
+                             info.Width * 0.83f, info.Height * 0.37f,
+                             info.Width, info.Height * 0.4f);
                 path.LineTo(info.Width, 0);
                 path.Close();
 
@@ -143,30 +116,118 @@ namespace LoginPageDesign
                     canvas.DrawPath(path, paint);
                 }
             }
+        }
 
-            PageLayout.Direction = FlexDirection.Column;
-            LoginFormFrame.HasShadow = true;
+        private void TabletView(SKPaintSurfaceEventArgs args, OrientationValue deviceOrientation)
+        {
+            Username.Margin = new Thickness(0, 25, 0, 0);
+            Password.Margin = new Thickness(0, 20, 0, 0);
+            LoginButton.Margin = new Thickness(0, 25, 0, 0);
+            FormTitle.FontSize = 30;
+            LoginFormFrame.HasShadow = false;
+            LogoSectionInner.VerticalOptions = LayoutOptions.EndAndExpand;
 
-            if(Device.Idiom == TargetIdiom.Tablet)
+            if (deviceOrientation == OrientationValue.Landscape)
             {
-                LoginFormFrame.Padding = new Thickness(30, 40);
-                LoginFormFrame.Margin = new Thickness(80, 0);
+                PaintLandScapeBackground(args);
+                LandScapeViewCommon();
+
+                FlexLayout.SetBasis(CompanyInfo, new FlexBasis(0.55f, true));
+                FlexLayout.SetBasis(LoginForm, new FlexBasis(0.45f, true));
+                FlexLayout.SetBasis(LogoSection, new FlexBasis(0.35f, true));
+
+                LoginFormFrame.Margin = new Thickness(60, 0);
+                LoginFormFrame.Padding = new Thickness(0);
+
+                AppInfo.IsVisible = true;
+                AppInfoImage.IsVisible = true;
+
+                Logo.HorizontalOptions = LayoutOptions.Start;
+
+                FormTitle.HorizontalTextAlignment = TextAlignment.Start;
+
+                LogoSection.Padding = new Thickness(60, 20, 120, 20);
             }
             else
             {
-                FormTitle.FontSize = 25;
+                PaintPortraitBackground(args);
+                PortraitViewCommon();
 
-                Username.Margin = new Thickness(0, 25, 0, 0);
-                Password.Margin = new Thickness(0, 20, 0, 0);
-                LoginButton.Margin = new Thickness(0, 25, 0, 0);
-
-                LoginFormFrame.Padding = new Thickness(20,40);
-                LoginFormFrame.Margin = new Thickness(30, 0);
+                LoginFormFrame.Padding = new Thickness(30, 40);
+                LoginFormFrame.Margin = new Thickness(80);
+                
+                Logo.HorizontalOptions = LayoutOptions.CenterAndExpand;
+                Logo.WidthRequest = 300;
             }
-            
+        }
+
+        private void MobileView(SKPaintSurfaceEventArgs args, OrientationValue deviceOrientation )
+        {
+            Username.Margin = new Thickness(0, 15, 0, 0);
+            Password.Margin = new Thickness(0, 15, 0, 0);
+            LoginButton.Margin = new Thickness(0, 15, 0, 0);
+
+            FormTitle.FontSize = 25;
+
+            if (deviceOrientation == OrientationValue.Landscape)
+            {
+                PaintLandScapeBackground(args);
+                LandScapeViewCommon();
+
+                FlexLayout.SetBasis(CompanyInfo, new FlexBasis(0.35f, true));
+                FlexLayout.SetBasis(LoginForm, new FlexBasis(0.65f, true));
+                FlexLayout.SetBasis(LogoSection, new FlexBasis(1, true));
+
+                LoginFormFrame.HasShadow = true;
+                LoginFormFrame.Margin = new Thickness(0, 30, 70, 30);
+                LoginFormFrame.Padding = new Thickness(20);
+                LoginFormFrame.BackgroundColor = Color.White;
+
+                AppInfo.IsVisible = true;
+                AppInfoImage.IsVisible = false;
+
+                LogoSection.Padding = new Thickness(21, 0);
+
+                LogoSectionInner.VerticalOptions = LayoutOptions.CenterAndExpand;
+            }
+            else
+            {
+                PaintPortraitBackground(args);
+                PortraitViewCommon();
+
+                LoginFormFrame.Padding = new Thickness(20, 40);
+                LoginFormFrame.Margin = new Thickness(30, 0);
+                LoginFormFrame.HasShadow = false;
+
+                Logo.WidthRequest = 200;
+
+                LogoSectionInner.VerticalOptions = LayoutOptions.EndAndExpand;
+            }
+        }
+
+        private void PortraitViewCommon()
+        {
+            PageLayout.Direction = FlexDirection.Column;
+            AppInfo.IsVisible = false;
+            AppInfoImage.IsVisible = false;
+
+            LoginFormFrame.BackgroundColor = Color.Transparent;
+
+            Logo.VerticalOptions = LayoutOptions.EndAndExpand;
+
+            LogoSection.Padding = new Thickness(0);
+
+            FormTitle.HorizontalTextAlignment = TextAlignment.Center;
 
             FlexLayout.SetBasis(CompanyInfo, new FlexBasis(0.2f, true));
             FlexLayout.SetBasis(LoginForm, new FlexBasis(0.8f, true));
+            FlexLayout.SetBasis(LogoSection, new FlexBasis(1, true));
+        }
+
+        private void LandScapeViewCommon()
+        {
+            PageLayout.Direction = FlexDirection.Row;
+            Logo.WidthRequest = 200;
         }
 
         private void SKCanvasView_PaintSurface_1(object sender, SKPaintSurfaceEventArgs args)

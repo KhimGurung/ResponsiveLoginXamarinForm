@@ -16,19 +16,19 @@
                     AbsoluteLayout.LayoutFlags="All"
                     AbsoluteLayout.LayoutBounds="0,0,1,1">
             <FlexLayout x:Name="CompanyInfo"
-                        FlexLayout.Basis="50%"
                         Direction="Column">
-                <StackLayout FlexLayout.Basis="40%"
-                             Padding="60,20,120,20">
-                    <Image Source="logo.png"
-                           WidthRequest="200"
-                           VerticalOptions="EndAndExpand"
-                           HorizontalOptions="StartAndExpand"/>
-                    <Label Text="The POS system is designed in a way that ensures the speed of performance and the ease of full handling and this is."
-                           FontSize="15"
-                           TextColor="#ffffff"/>
+                <StackLayout x:Name="LogoSection">
+                    <StackLayout x:Name="LogoSectionInner">
+                        <Image x:Name="Logo" 
+                               Source="logo.png"/>
+                        <Label x:Name="AppInfo" 
+                               Text="The POS system is designed in a way that ensures the speed of performance and the ease of full handling and this is."
+                               FontSize="15"
+                               TextColor="#ffffff"/>
+                    </StackLayout>
                 </StackLayout>
-                <AbsoluteLayout FlexLayout.Basis="60%">
+                <AbsoluteLayout x:Name="AppInfoImage" 
+                                FlexLayout.Basis="65%">
                     <skia:SKCanvasView x:Name="Center" 
                                    PaintSurface="SKCanvasView_PaintSurface_2"
                                    AbsoluteLayout.LayoutFlags="All"
@@ -52,25 +52,21 @@
                                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>
                 </AbsoluteLayout>
             </FlexLayout>
-            <StackLayout x:Name="LoginForm" 
-                         FlexLayout.Basis="50%"
+            <StackLayout x:Name="LoginForm"
                          VerticalOptions="FillAndExpand">
                 <Frame x:Name="LoginFormFrame" 
                        VerticalOptions="CenterAndExpand"
-                       HasShadow="False"
                        CornerRadius="20">
                     <StackLayout>
                         <Label x:Name="FormTitle" 
                                Text="Login as admin user"
                                FontAttributes="Bold"
-                               TextColor="#1c1c1c"
-                               FontSize="30" />
+                               TextColor="#1c1c1c"/>
                         <enhancedEntry:EnhancedEntry x:Name="Username" 
                                                      Placeholder="Username or email"
                                                      CornerRadius="25"
                                                      BorderColor="#dadada"
                                                      BorderWidth="2"
-                                                     Margin="0,35,0,0"
                                                      LeftIcon="user"/>
                         <enhancedEntry:EnhancedEntry x:Name="Password" 
                                                      Placeholder="Password"
@@ -78,7 +74,6 @@
                                                      BorderColor="#dadada"
                                                      IsPassword="True"
                                                      BorderWidth="2"
-                                                     Margin="0,30,0,0"
                                                      LeftIcon="lock"/>
                         <Label Text="Forget the password"
                                TextColor="#acacac"
