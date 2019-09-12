@@ -15,11 +15,43 @@
         <FlexLayout x:Name="PageLayout" 
                     AbsoluteLayout.LayoutFlags="All"
                     AbsoluteLayout.LayoutBounds="0,0,1,1">
-            <StackLayout x:Name="CompanyInfo" 
-                         FlexLayout.Basis="50%"
-                         VerticalOptions="FillAndExpand">
-
-            </StackLayout>
+            <FlexLayout x:Name="CompanyInfo"
+                        FlexLayout.Basis="50%"
+                        Direction="Column">
+                <StackLayout FlexLayout.Basis="40%"
+                             Padding="60,20,120,20">
+                    <Image Source="logo.png"
+                           WidthRequest="200"
+                           VerticalOptions="EndAndExpand"
+                           HorizontalOptions="StartAndExpand"/>
+                    <Label Text="The POS system is designed in a way that ensures the speed of performance and the ease of full handling and this is."
+                           FontSize="15"
+                           TextColor="#ffffff"/>
+                </StackLayout>
+                <AbsoluteLayout FlexLayout.Basis="60%">
+                    <skia:SKCanvasView x:Name="Center" 
+                                   PaintSurface="SKCanvasView_PaintSurface_2"
+                                   AbsoluteLayout.LayoutFlags="All"
+                                   AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+                    <skia:SKCanvasView x:Name="Right" 
+                                   PaintSurface="SKCanvasView_PaintSurface_2"
+                                   AbsoluteLayout.LayoutFlags="All"
+                                   AbsoluteLayout.LayoutBounds="0,0,1,1">
+                    </skia:SKCanvasView>
+                    <skia:SKCanvasView x:Name="Left" 
+                                   PaintSurface="SKCanvasView_PaintSurface_2"
+                                   AbsoluteLayout.LayoutFlags="All"
+                                   AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+                    <skia:SKCanvasView x:Name="Top" 
+                                   PaintSurface="SKCanvasView_PaintSurface_2"
+                                   AbsoluteLayout.LayoutFlags="All"
+                                   AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+                    <skia:SKCanvasView x:Name="Bottom" 
+                                   PaintSurface="SKCanvasView_PaintSurface_2"
+                                   AbsoluteLayout.LayoutFlags="All"
+                                   AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+                </AbsoluteLayout>
+            </FlexLayout>
             <StackLayout x:Name="LoginForm" 
                          FlexLayout.Basis="50%"
                          VerticalOptions="FillAndExpand">

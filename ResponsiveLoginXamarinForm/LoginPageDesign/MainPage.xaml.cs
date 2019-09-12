@@ -2,7 +2,10 @@
 using ResponsiveRegistrationForm;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
+using System;
 using System.ComponentModel;
+using System.IO;
+using System.Reflection;
 using Xamarin.Forms;
 
 namespace LoginPageDesign
@@ -188,6 +191,98 @@ namespace LoginPageDesign
                 canvas.DrawRect(rect, paint);
             }
 
+        }
+
+        private void SKCanvasView_PaintSurface_2(object sender, SKPaintSurfaceEventArgs args)
+        {
+
+            SKImageInfo info = args.Info;
+            SKSurface surface = args.Surface;
+            SKCanvas canvas = surface.Canvas;
+
+            canvas.Clear();
+
+            float[] borderDot = new float[]{ 5, 5 };
+
+            SKPaint paint = new SKPaint
+            {
+                IsAntialias = true,
+                Style = SKPaintStyle.Stroke,
+                Color = SKColors.White,
+                StrokeWidth = 1,
+                PathEffect = SKPathEffect.CreateDash(borderDot, 10)  
+            };
+
+            Assembly assembly = GetType().GetTypeInfo().Assembly;
+
+            if ((SKCanvasView)sender == Center)
+            {
+                string resourceID = "LoginPageDesign.images.mainImage.png";
+                using (Stream stream = assembly.GetManifestResourceStream(resourceID))
+                {
+                    var resourceBitmap = SKBitmap.Decode(stream);
+                    if (resourceBitmap != null)
+                    {
+                        canvas.DrawCircle(0.42f * info.Width, 0.5f * info.Height, 110, paint);
+                        canvas.DrawBitmap(resourceBitmap, ((0.42f * info.Width) - 110), (0.5f * info.Height) - 110);
+                    }
+                }
+            }
+
+            if ((SKCanvasView)sender == Right)
+            {
+                string resourceID = "LoginPageDesign.images.grocery.png";
+                using (Stream stream = assembly.GetManifestResourceStream(resourceID))
+                {
+                    var resourceBitmap = SKBitmap.Decode(stream);
+                    if (resourceBitmap != null)
+                    {
+                        canvas.DrawCircle((0.42f * info.Width) + 110, 0.5f * info.Height, 20, paint);
+                        canvas.DrawBitmap(resourceBitmap, ((0.42f * info.Width) + 110) - 10, (0.5f * info.Height) - 10);
+                    }
+                }
+            }
+
+            if ((SKCanvasView)sender == Left)
+            {
+                string resourceID = "LoginPageDesign.images.location.png";
+                using (Stream stream = assembly.GetManifestResourceStream(resourceID))
+                {
+                    var resourceBitmap = SKBitmap.Decode(stream);
+                    if (resourceBitmap != null)
+                    {
+                        canvas.DrawCircle((0.42f * info.Width) - 110, 0.5f * info.Height, 20, paint);
+                        canvas.DrawBitmap(resourceBitmap, ((0.42f * info.Width) - 110) - 10, (0.5f * info.Height) - 10);
+                    }
+                }
+            }
+            if ((SKCanvasView)sender == Top)
+            {
+                string resourceID = "LoginPageDesign.images.phone.png";
+                using (Stream stream = assembly.GetManifestResourceStream(resourceID))
+                {
+                    var resourceBitmap = SKBitmap.Decode(stream);
+                    if (resourceBitmap != null)
+                    {
+                        canvas.DrawCircle(0.42f * info.Width, (0.5f * info.Height) - 110, 20, paint);
+                        canvas.DrawBitmap(resourceBitmap, (0.42f * info.Width) - 10, ((0.5f * info.Height) - 110) - 10);
+                    }
+                }
+            }
+
+            if ((SKCanvasView)sender == Bottom)
+            {
+                string resourceID = "LoginPageDesign.images.restaurant.png";
+                using (Stream stream = assembly.GetManifestResourceStream(resourceID))
+                {
+                    var resourceBitmap = SKBitmap.Decode(stream);
+                    if (resourceBitmap != null)
+                    {
+                        canvas.DrawCircle(0.42f * info.Width, (0.5f * info.Height) + 110, 20, paint);
+                        canvas.DrawBitmap(resourceBitmap, (0.42f * info.Width) - 10, ((0.5f * info.Height) + 110) - 10);
+                    }
+                }
+            }
         }
     }
 }

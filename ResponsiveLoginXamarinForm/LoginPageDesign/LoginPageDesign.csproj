@@ -10,6 +10,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\grocery.png" />
+    <None Remove="images\location.png" />
+    <None Remove="images\mainImage.png" />
+    <None Remove="images\phone.png" />
+    <None Remove="images\restaurant.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="images\grocery.png" />
+    <EmbeddedResource Include="images\location.png" />
+    <EmbeddedResource Include="images\mainImage.png" />
+    <EmbeddedResource Include="images\phone.png" />
+    <EmbeddedResource Include="images\restaurant.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="LeoJHarris.XForms.Plugin.EnhancedEntry" Version="1.0.6" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
