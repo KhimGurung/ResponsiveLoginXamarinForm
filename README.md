@@ -7,10 +7,10 @@
   </tr>
   <tr>
     <td>
-        <img src="/ResponsiveLoginXamarinForm/LoginPageDesign/images/MobilePortrait.PNG" width=500 />
+        <img src="/ResponsiveLoginXamarinForm/LoginPageDesign/images/MobilePortrait.PNG" width=300 />
     </td>
     <td>
-         <img src="/ResponsiveLoginXamarinForm/LoginPageDesign/images/MobileLandScape.PNG" width=300 />
+         <img src="/ResponsiveLoginXamarinForm/LoginPageDesign/images/MobileLandScape.PNG" width=500 />
     </td>
   </tr>
     <tr>
